@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Buoi 5</title>
+    <!-- line-awesome -->
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <!-- BS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!-- main css -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container-fluid header">
+        <nav class="navbar navbar-expand-lg navbar-light py-3">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="myNav">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#tuyensinh">Tuyển sinh <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#tiendien">Tính tiền điện</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="container" id="tuyensinh">
+        <div class="row">
+            <div class="card text-white bg-info my-3 mx-auto">
+                <div class="card-header text-center">Quản lý tuyển sinh</div>
+                <div class="card-body row">
+                    <div class="standard col-6 px-3 py-3">
+                        <div class="wrapper px-2 pb-3">
+                            <h5><i class="las la-check"></i> Nhập điểm chuẩn cho 3 môn</h5>
+                            <div>
+                                <label for="standard1">Môn A</label>
+                                <input class="ml-2" type="number" step=".5" id="standard1" placeholder="Nhập điểm chuẩn"
+                                    min="0">
+                            </div>
+                            <div>
+                                <label for="standard2">Môn B</label>
+                                <input class="ml-2" type="number" step=".5" id="standard2" placeholder="Nhập điểm chuẩn"
+                                    min="0">
+                            </div>
+                            <div>
+                                <label for="standard3">Môn C</label>
+                                <input class="ml-2" type="number" step=".5" id="standard3" placeholder="Nhập điểm chuẩn"
+                                    min="0">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="examResult col-6 px-3 py-3">
+                        <div class="wrapper px-2 pb-3">
+                            <h5><i class="las la-check"></i> Nhập điểm thi của thí sinh</h5>
+                            <div>
+                                <label for="exam1">Môn A</label>
+                                <input class="ml-2" type="number" step=".5" id="exam1" placeholder="Nhập điểm thi"
+                                    min="0">
+                            </div>
+                            <div>
+                                <label for="exam2">Môn B</label>
+                                <input class="ml-2" type="number" step=".5" id="exam2" placeholder="Nhập điểm thi"
+                                    min="0">
+                            </div>
+                            <div>
+                                <label for="exam3">Môn C</label>
+                                <input class="ml-2" type="number" step=".5" id="exam3" placeholder="Nhập điểm thi"
+                                    min="0">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="select-area col-6 px-3 py-3">
+                        <div class="wrapper px-2 pb-3">
+                            <h5><i class="las la-check"></i> Thí sinh thuộc khu vực ưu tiên nào?</h5>
+                            <select class="custom-select" id="areaSelect" style="width: 70%">
+                                <option selected>Vui lòng chọn</option>
+                                <option value="A">Khu vực A (+2 điểm)</option>
+                                <option value="B">Khu vực B (+1 điểm)</option>
+                                <option value="C">Khu vực C (+0.5 điểm)</option>
+                                <option value="X">Ngoài các khu vực trên</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="select-priority col-6 px-3 py-3">
+                        <div class="wrapper px-2 pb-3">
+                            <h5><i class="las la-check"></i> Thí sinh thuộc đối tượng ưu tiên nào?</h5>
+                            <select class="custom-select" id="prioritySelect" style="width: 70%">
+                                <option selected>Vui lòng chọn</option>
+                                <option value="1">Đối tượng 1 (+2.5 điểm)</option>
+                                <option value="2">Đối tượng 2 (+1.5 điểm)</option>
+                                <option value="3">Đối tượng 3 (+1 điểm)</option>
+                                <option value="0">Ngoài các đối tượng trên</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center ">
+                    <button type="button" class="btn btn-outline-info" onclick="showResult()">Xem Kết Quả</button>
+                </div>
+                <div class="result text-center mt-3">
+                    <p id="bt1-output0"></p>
+                    <p id="bt1-output1"></p>
+                    <p id="bt1-output2"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="tiendien">
+        <div class="row">
+            <div class="card text-white bg-info my-3 mx-auto">
+                <div class="card-header text-center">Tính tiền điện</div>
+                <div class="card-body row">
+                    <div class="standard px-3 py-3">
+                        <h5><i class="las la-check"></i> Nhập thông tin tiêu thụ điện</h5>
+                        <div class="wrapper2">
+                            <div>
+                                <label for="name">Họ tên: </label>
+                                <input class="ml-2" type="text" id="name" placeholder="Nhập họ tên">
+                            </div>
+                            <div>
+                                <label for="kw">Số Kw: </label>
+                                <input class="ml-2" type="number" step=".1" id="kw" placeholder="Nhập số Kw tiêu thụ"
+                                    min="0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center ">
+                    <button type="button" class="btn btn-outline-info" onclick="calculate()">Xem Kết Quả</button>
+                </div>
+                <div class="result text-center mt-3">
+                    <p id="bt2-output1"></p>
+                    <p id="bt2-output2"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- BS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
