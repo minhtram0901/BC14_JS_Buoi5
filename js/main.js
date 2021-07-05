@@ -100,23 +100,21 @@ const FROM351KW = 1300;
 function tinhTienDien(kw) {
     var tienDien = 0;
     if (kw > 350){
-        tienDien = (kw - 350) * FROM351KW;
-        kw = 350;
-    }    
-    if (kw > 200){
-        tienDien = tienDien + ((kw - 200) * FROM201KW);
-        kw = 200;
+        tienDien = (kw - 350) * FROM351KW + 150 * FROM201KW + 100 * FROM101KW + 50 * FROM51KW + 50 * FROM0KW;
+        return tienDien;
+    } else if (kw > 200){
+        tienDien = (kw - 200) * FROM201KW + 100 * FROM101KW + 50 * FROM51KW + 50 * FROM0KW;
+        return tienDien;
+    } else if (kw > 100){
+        tienDien = (kw - 100) * FROM101KW + 50 * FROM51KW + 50 * FROM0KW;
+        return tienDien;
+    } else if (kw > 50){
+        tienDien = (kw - 50) * FROM51KW + 50 * FROM0KW;
+        return tienDien;
+    } else {
+        tienDien = kw * FROM0KW;
+        return tienDien;
     }
-    if (kw > 100){
-        tienDien = tienDien + ((kw - 100) * FROM101KW);
-        kw = 100;
-    }
-    if (kw > 50){
-        tienDien = tienDien + ((kw - 50) * FROM51KW);
-        kw = 50;
-    }
-    tienDien = tienDien + kw * FROM0KW;
-    return tienDien;
 }
 
 function calculate(){
